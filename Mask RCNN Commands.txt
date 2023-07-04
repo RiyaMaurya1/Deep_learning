@@ -1,0 +1,31 @@
+Mask RCNN
+
+Create new environment with conda to use tensorflow version 1.x
+conda create --name env_name python==3.7 pandas numpy tensorflow==1.15
+
+Activate environment
+conda activate env_name
+
+(Install jupyter notebook
+pip install jupyter
+or
+conda install -c anaconda jupyter) - optional
+
+Commands for Mask RCNN
+git clone https://github.com/matterport/Mask_RCNN.git
+
+cd Mask_RCNN
+python setup.py install
+pip install keras==2.2.4 scikit-image matplotlib
+or
+conda install -c conda-forge keras==2.2.4 scikit-image matplotlib
+python detection_code.py
+"\.conda\envs\tf_env_1\lib\site-packages\keras\engine\saving.py"
+in line 1083, 
+if 'keras_version' in f.attrs:
+        original_keras_version = f.attrs['keras_version'].decode('utf8')
+
+change to 
+if 'keras_version' in f.attrs:
+        original_keras_version = f.attrs['keras_version'].encode().decode('utf8')
+   
